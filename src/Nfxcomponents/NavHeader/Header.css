@@ -1,0 +1,25 @@
+
+.Header{
+    display: flex;
+    justify-content: space-between;
+}
+#imglogo{
+    width: 8rem;
+    height: 5rem;
+}
+.header-menu{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    color: white;
+    margin-top: 1rem;
+}
+.header-menu>li>a{
+    text-decoration: none;
+    
+    cursor: pointer;
+}
+.header-menu>li>a:hover{
+    cursor: pointer;
+    color: orange;
+}

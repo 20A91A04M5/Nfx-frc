@@ -1,0 +1,109 @@
+
+/* Section Styling */
+.ex-section {
+    background: #121212; /* Dark background */
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Container to Hold Cards */
+  .ex-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+  }
+  
+  /* Exercise Card Styling */
+  .ex-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222; /* Dark card background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px;
+    transition: transform 0.3s ease-in-out;
+    flex-wrap: wrap;
+  }
+  
+  .ex-card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Image Styling */
+  .ex-image img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Content Styling */
+  .ex-content {
+    flex: 1;
+    padding: 20px;
+    color: white;
+  }
+
+  #bckbmi{
+    padding: 10px;
+    font-size: large;
+    width: 100px;
+    border-radius: 50%;
+  }
+  #bckbmi:hover{
+    background-color: dodgerblue;
+
+  }
+  
+  .ex-content h5 {
+    font-size: 22px;
+    color: gold;
+  }
+  
+  .ex-content p {
+    font-size: 16px;
+  }
+  .ex-content button {
+    color: black;
+    font-size: large;
+    background-color: dodgerblue;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    float: right;
+  }
+  
+  /* Left Alignment for Even Cards, Right for Odd Cards */
+  .ex-card.left {
+    flex-direction: row;
+  }
+  
+  .ex-card.right {
+    flex-direction: row-reverse;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .ex-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+  
+    .ex-image img {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 15px;
+    }
+  
+    .ex-content {
+      text-align: center;
+    }
+  }
+  

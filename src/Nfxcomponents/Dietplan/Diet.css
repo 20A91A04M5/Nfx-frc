@@ -1,0 +1,110 @@
+/* Container & Section Styles */
+.diet-plan-section {
+    background-color: #121212;
+    padding: 40px 20px;
+    color: #fff;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Back Button */
+  #bckbmi {
+    background: blue;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  /* Section Title */
+  .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffa500;
+  }
+  
+  /* Day Card Styling */
+  .day-card {
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .day-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffa500;
+    text-align: center;
+  }
+  
+  /* Meal Container */
+  .meal-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Meal Card */
+  .meal-card {
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    width: 280px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; 
+  }
+  
+  .meal-card:hover {
+    transform: scale(1.05); 
+  }
+  
+  /* Meal Image */
+  .meal-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  /* Meal Content */
+  .meal-content {
+    padding: 15px;
+    color: #fff;
+  }
+  
+  .meal-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .meal-info p {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .nutrients {
+    font-weight: bold;
+    color: #ffa500;
+    margin-top: 10px;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .meal-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .meal-card {
+      width: 90%;
+    }
+  }
+  

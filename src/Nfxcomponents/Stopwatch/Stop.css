@@ -1,0 +1,83 @@
+.stopwatch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .stopwatch {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: white;
+    border: 8px solid rgb(33, 53, 232);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .watch-top {
+    position: absolute;
+    top: -15px;
+    width: 40px;
+    height: 20px;
+    background: rgba(255, 162, 0, 0.974);
+    border-radius: 10px;
+  }
+  
+  .watch-dot {
+    position: absolute;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+  }
+  
+  .time-display {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .time-input {
+    margin-top: 15px;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .button-group {
+    display: flex;
+    margin-top: 15px;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+  }
+  
+  .yellow {
+    background: yellow;
+    color: black;
+    border: 2px solid black;
+  }
+  
+  .progress {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+  }
+  
