@@ -42,7 +42,7 @@ function LegsExercises() {
       });
   }, []);
 
-  if (loading) return <div style={{ color: '#fff' }}>Loading...</div>;
+  if (loading) return <div style={{ color: "#fff", textAlign:"center", fontSize:"50px", alignContent:"center", height:"100vh",backgroundColor:"black" }}>Loading...</div>;
 
   return (
     <div style={{ padding: '20px', background: '#000', color: '#fff' }}>
