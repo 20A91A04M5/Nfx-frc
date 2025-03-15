@@ -23,7 +23,9 @@
   .form-outline input {
     padding-left: 3rem;
   }
-  
+  .btn-lg{
+    width: 100%;
+  }
 
   .divider:before,
   .divider:after {
