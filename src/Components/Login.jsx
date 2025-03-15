@@ -7,7 +7,7 @@ import { loginlogo } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { signInWithPopup, GoogleProvider, signInWithEmailAndPassword, auth } from "../Firbase/Firebase_Config";
+import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, auth } from "../Firbase/Firebase_Config";
 import { LiaLinkedin } from "react-icons/lia";
 
 import Swal from 'sweetalert2';
