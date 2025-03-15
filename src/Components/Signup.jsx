@@ -1,12 +1,14 @@
-
-
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Signup.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope, faLock, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logosignup } from "../assets";
+import { createUserWithEmailAndPassword } from "../Firbase/Firebase_Config";
+import { auth } from "../Firbase/Firebase_Config";
+
+import Swal from 'sweetalert2';
 
 const API_URL = "https://nfx-back.onrender.com";
 
@@ -20,12 +22,14 @@ const SignupPage = () => {
     confirmPassword: "",
   });
 
+  const  navigate=useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const validateForm = () => {
     const { FirstName, LastName, Email, PhoneNo, Password, confirmPassword } = formData;
+    console.log(formData)
 
     if (!FirstName || !LastName || !Email || !PhoneNo || !Password || !confirmPassword) {
       alert("All fields are required.");
@@ -41,33 +45,57 @@ const SignupPage = () => {
     }
     return true;
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
   
     if (!validateForm()) return;
   
-    fetch(`${API_URL}/signup`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          return response.json().then((data) => {
-            throw new Error(data.error || "Invalid credentials");
-          });
-        }
-        return response.json();
-      })
-      .then((data) => {
-        alert("Signup successful");
-        console.log("Signup successful:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error.message);
-        alert(error.message || "An error occurred. Please try again later.");
+    try {
+      // Signup with Firebase
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.Email,
+        formData.Password
+      );
+      Swal.fire("SignUp successfull..!")
+      navigate("/login")
+      console.log("User created in Firebase:", userCredential.user);
+
+      
+  
+      // Send data to backend
+      const response = await fetch(`${API_URL}/signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          FirstName: formData.FirstName,
+          LastName: formData.LastName,
+          Email: formData.Email,
+          PhoneNo: formData.PhoneNo,
+          Password: formData.Password,
+        }),
       });
+  
+      // if (!response.ok) {
+      //   const errorText = await response.text();
+      //   throw new Error(`Signup failed: ${errorText}`);
+      // }
+  
+      if (response.headers.get("content-type")?.includes("application/json")) {
+        const data = await response.json();
+        console.log("Signup successful:", data);
+        alert("Signup successful");
+      }
+    } catch (error) {
+      console.error("Signup Error:", error.message);
+      alert(error.message || "An error occurred. Please try again later.");
+    }
   };
+  
+
+  
+  
   
 
   return (
@@ -199,6 +227,4 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
-
-
 
