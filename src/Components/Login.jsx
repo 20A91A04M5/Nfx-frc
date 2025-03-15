@@ -7,24 +7,24 @@ import { loginlogo } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { signInWithPopup, GoogleProvider, auth } from "../Firbase/Firebase_Config";
+import { signInWithPopup, GoogleProvider, signInWithEmailAndPassword, auth } from "../Firbase/Firebase_Config";
 import { LiaLinkedin } from "react-icons/lia";
+
+import Swal from 'sweetalert2';
 
 const API_URL = "https://nfx-back.onrender.com";
 
 const LoginForm = () => {
   const navigate = useNavigate();
 
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
- 
+  // Submit for Backend Login
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    
+
     if (!email || !password) {
       setError("Both email and password are required.");
       return;
@@ -33,28 +33,35 @@ const LoginForm = () => {
     const loginData = { email, password };
     console.log("Login data to be sent:", loginData);
 
-
     try {
+      // Save to Firebase Authentication
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("User logged in with Firebase");
+      Swal.fire("LogIn successfull..!")
+      navigate("/Nfxapp");
+
+      // Save to backend 
       const response = await axios.post(`${API_URL}/login`, loginData);
       console.log("Response from server:", response.data);
-     
+
       if (response.data.message === "Login successful.") {
         navigate("/Nfxapp");
       }
     } catch (err) {
-      console.error("Error during login:", err.response ? err.response.data : err.message);
+      console.error("Error during login:", err.message);
       setError("Login failed. Please check your credentials.");
     }
   };
 
-
+  // Google Login
   const handleGoogleLogin = async () => {
     try {
-      await signInWithPopup(auth, GoogleProvider);
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
       alert("Logged in with Google");
       navigate("/Nfxapp");
     } catch (err) {
-      alert(err);
+      alert(err.message);
     }
   };
 
@@ -67,7 +74,7 @@ const LoginForm = () => {
           </div>
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <h2 className="fw-bold text-warning  text-center mb-4">Sign In now</h2>
+            <h2 className="fw-bold text-warning text-center mb-4">Sign In now</h2>
             <form onSubmit={handleSubmit}>
               {/* Email input with icon */}
               <div className="form-outline mb-4 position-relative">
@@ -108,7 +115,6 @@ const LoginForm = () => {
               {error && <p className="text-danger">{error}</p>}
 
               <div className="d-flex justify-content-around align-items-center mb-4">
-                {/* Checkbox */}
                 <div className="form-check">
                   <input
                     className="form-check-input"
@@ -138,7 +144,7 @@ const LoginForm = () => {
                   className="btn btn-primary btn-lg btn-block"
                   id="loginbtn"
                 >
-                  Login in
+                  Log in
                 </button>
               </div>
             </form>
@@ -146,15 +152,14 @@ const LoginForm = () => {
             <div className="divider d-flex align-items-center my-4">
               <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
             </div>
-            <a
+
+            <button
               className="btn btn-danger btn-lg btn-block"
               style={{ backgroundColor: "red" }}
-              href="#!"
-              role="button"
               onClick={handleGoogleLogin}
             >
-              <i className="fab fa-Google me-2"></i>Continue with Google
-            </a>
+              <i className="fab fa-google me-2"></i> Continue with Google
+            </button>
           </div>
         </div>
       </div>
@@ -163,7 +168,5 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-
 
 
