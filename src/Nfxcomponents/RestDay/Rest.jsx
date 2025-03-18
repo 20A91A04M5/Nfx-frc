@@ -2,6 +2,7 @@
 // RestDaySunday.js
 import React, { useState, useEffect } from 'react';
 import Stopwatches from '../Stopwatch/Stop';
+import Loading from '../../Loading/Loading';
 import "./Rest.css"
 import { useNavigate } from 'react-router-dom';
 
@@ -37,7 +38,7 @@ function RestDaySunday() {
       });
   }, []);
 
-  if (loading) return <div style={{ color: "orange", textAlign:"center", fontSize:"50px", alignContent:"center", height:"100vh",backgroundColor:"black" }}>Loading...</div>;
+  if (loading) return <Loading />;
   if (!sundayData) return <div style={{ color: '#fff' }}>No data for Sunday found.</div>;
 
   return (
