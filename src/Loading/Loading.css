@@ -1,0 +1,33 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full-screen height */
+    background-color: #111111;
+  }
+  
+  .dumbbell {
+    font-size: 80px;
+    animation: lift 1s ease-in-out infinite;
+  }
+  
+  @keyframes lift {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d7d2d2;
+    margin-top: 10px;
+  }
+  
