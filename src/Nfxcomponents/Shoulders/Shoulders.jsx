@@ -2,6 +2,7 @@
 // ShouldersCoreExercises.js
 import React, { useState, useEffect } from "react";
 import Stopwatches from "../Stopwatch/Stop";
+import Loading from '../../Loading/Loading';
 import "./Shoulders.css"
 import { useNavigate } from "react-router-dom";
 
@@ -48,7 +49,7 @@ function ShouldersCoreExercises() {
       });
   }, []);
 
-  if (loading) return <div style={{ color: "orange", textAlign:"center", fontSize:"50px", alignContent:"center", height:"100vh",backgroundColor:"black" }}>Loading...</div>;
+  if (loading) return <Loading />;
 
   return (
     <div style={{ padding: "20px", background: "#000", color: "#fff" }}>
