@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Diet.css';
+import Loading from '../../Loading/Loading';
 
 const API_URL = "https://nfx-back.onrender.com";
 
@@ -23,7 +24,7 @@ const DietPlanSection = () => {
       });
   }, []);
 
-  if (loading) return <div style={{ color: "orange", textAlign:"center", fontSize:"50px", alignContent:"center", height:"100vh",backgroundColor:"black" }}>Loading...</div>;
+  if (loading) return <Loading />;
 
   return (
     <section id="diet-plan" className="diet-plan-section">
