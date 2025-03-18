@@ -7,7 +7,7 @@ const Loading = () => {
       <div className="dumbbell">
         🏋️‍♂️
       </div>
-      <p>Loading your workout...</p>
+      <h4>Loading your workout & Diet...</h4>
     </div>
   );
 };
