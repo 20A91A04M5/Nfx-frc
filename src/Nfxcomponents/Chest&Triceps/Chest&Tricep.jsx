@@ -4,6 +4,7 @@ import "./ChestAndTriceps.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stopwatches from '../Stopwatch/Stop';
+import Loading from '../../Loading/Loading';
 
 const buttonStyle = {
   background: 'blue',
@@ -43,7 +44,7 @@ function ChestTricepsExercises() {
       });
   }, []);
 
-  if (loading) return <div style={{ color: "orange", textAlign:"center", fontSize:"50px", alignContent:"center", height:"100vh",backgroundColor:"black" }}>Loading...</div>;
+  if (loading) return <Loading />;
 
   return (
     <div style={{ padding: '20px',  color: '#fff' }}>
