@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Stopwatches from "../Stopwatch/Stop";
 import { useNavigate } from "react-router-dom";
+import Loading from '../../Loading/Loading';
 
 const buttonStyle = {
   background: "blue",
@@ -43,7 +44,7 @@ function CardioHiitExercises() {
       });
   }, []);
 
-  if (loading) return <div style={{ color: "orange", textAlign:"center", fontSize:"50px", alignContent:"center", height:"100vh",backgroundColor:"black" }}>Loading...</div>;
+  if (loading) return <Loading />;
 
   return (
     <div style={{ padding: "20px", background: "#000", color: "#fff" }}>
