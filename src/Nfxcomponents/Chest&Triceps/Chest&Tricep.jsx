@@ -53,7 +53,7 @@ function ChestTricepsExercises() {
           &larr;
         </button>
         <span>Chest & Triceps</span>
-        <button onClick={() => navigate("/diet")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
+        <button onClick={() => navigate("/diet/monday")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
           Diet
         </button>
       </h1>
