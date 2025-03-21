@@ -23,8 +23,19 @@ import BackAndBiceps from "./Nfxcomponents/BackAndBiceps/BackAndBiceps";
 import Legs from "./Nfxcomponents/Legs/Legs";
 import Shoulders from "./Nfxcomponents/Shoulders/Shoulders";
 import Cardio from "./Nfxcomponents/CardioAndHiit/Cardio";
-import SaturdayActiveRecoveryExercises from "./Nfxcomponents/Flexible/FLexibility";
+// import SaturdayActiveRecoveryExercises from "./Nfxcomponents/Flexible/FLexibility";
 import RestDaySunday from "./Nfxcomponents/RestDay/Rest";
+import Monday from "./Nfxcomponents/Dietplan/MonDiet";
+import Tuesday from "./Nfxcomponents/Dietplan/TuesDiet";
+import Wednesday from "./Nfxcomponents/Dietplan/WedDiet";
+import Thursday from "./Nfxcomponents/Dietplan/ThurDiet";
+import Friday from "./Nfxcomponents/Dietplan/FriDiet";
+import Saturday from "./Nfxcomponents/Dietplan/SatDiet";
+import Sunday from "./Nfxcomponents/Dietplan/SunDiet";
+import SaturdayActiveRecoveryExercises from "./Nfxcomponents/Flexible/FLexibility";
+import SaturdayFullBodyExercises from "./Nfxcomponents/Flexible/FLexibility";
+import SaturdayExercises from "./Nfxcomponents/RestDay/Rest";
+
 
 
 const App = () => {
@@ -42,10 +53,19 @@ const App = () => {
         <Route path="/exercises/back-biceps" element={<BackAndBiceps />} />
         <Route path="/exercises/legs" element={<Legs />} />
         <Route path="/exercises/shoulders" element={<Shoulders />} />
-        <Route path="/exercises/Flexible" element={<SaturdayActiveRecoveryExercises />} />
+       
+        <Route path="/exercises/Flexible" element={<SaturdayExercises />} />
         <Route path="/exercises/Cardio" element={<Cardio />} />
         <Route path="/exercises/Rest" element={<RestDaySunday />} />
         <Route path="/diet" element={<DietPlanSection />} />
+        <Route path="/diet/monday" element={<Monday />} />
+        <Route path="/diet/tuesday" element={<Tuesday />} />
+        <Route path="/diet/wednesday" element={<Wednesday />} />
+        <Route path="/diet/thursday" element={<Thursday />} />
+        <Route path="/diet/friday" element={<Friday />} />
+        <Route path="/diet/saturday" element={<Saturday />} />
+        <Route path="/diet/sunday" element={<Sunday />} />
+        
         <Route path="/prices" element={<Pricing />} />
         {/* <Route path="/Schedule" element={<GymSched />} /> */}
       </Routes>
@@ -54,3 +74,4 @@ const App = () => {
 };
 
 export default App;
+
