@@ -49,7 +49,7 @@ function RestDaySunday() {
           &larr;
         </button>
         <span>Rest Day - Sunday</span>
-        <button onClick={() => navigate("/diet")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
+        <button onClick={() => navigate("/diet/sunday")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
           Diet
         </button>
       </h1>
