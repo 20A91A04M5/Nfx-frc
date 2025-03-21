@@ -52,7 +52,7 @@ function BackBicepsExercises() {
           &larr;
         </button>
         <span>Back and Biceps Exercises</span>
-        <button onClick={() => navigate("/diet")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
+        <button onClick={() => navigate("/diet/tuesday")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
           Diet
         </button>
       </h1>
