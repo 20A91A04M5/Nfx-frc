@@ -32,8 +32,8 @@ import Thursday from "./Nfxcomponents/Dietplan/ThurDiet";
 import Friday from "./Nfxcomponents/Dietplan/FriDiet";
 import Saturday from "./Nfxcomponents/Dietplan/SatDiet";
 import Sunday from "./Nfxcomponents/Dietplan/SunDiet";
-import SaturdayActiveRecoveryExercises from "./Nfxcomponents/Flexible/FLexibility";
-import SaturdayFullBodyExercises from "./Nfxcomponents/Flexible/FLexibility";
+// import SaturdayActiveRecoveryExercises from "./Nfxcomponents/Flexible/FLexibility";
+// import SaturdayFullBodyExercises from "./Nfxcomponents/Flexible/FLexibility";
 import SaturdayExercises from "./Nfxcomponents/RestDay/Rest";
 
 
