@@ -52,7 +52,7 @@ function LegsExercises() {
           &larr;
         </button>
         <span>Legs Exercises</span>
-        <button onClick={() => navigate("/diet")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
+        <button onClick={() => navigate("/diet/wednesday")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
           Diet
         </button>
       </h1>
