@@ -89,6 +89,14 @@
   }
   
   /* Responsive Design */
+ @media (max-width:556px) {
+    .d-flex{
+      display: flex;
+      flex-direction: column;
+    }
+    
+  }
+
   @media (max-width: 768px) {
     .ex-card {
       flex-direction: column;
@@ -106,5 +114,15 @@
     .ex-content {
       text-align: center;
     }
+  }
+
+ @media (min-width:768px) {
+    .ex-image img {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
   }
   
