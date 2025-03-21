@@ -53,7 +53,7 @@ function CardioHiitExercises() {
           &larr;
         </button>
         <span>Cardio & HIIT Exercises</span>
-        <button onClick={() => navigate("/diet")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
+        <button onClick={() => navigate("/diet/friday")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor:"orange", color:"black" }}>
           Diet
         </button>
       </h1>
