@@ -1,107 +1,73 @@
-import React, { useState, useEffect } from "react";
-import Stopwatches from "../Stopwatch/Stop";
-import { useNavigate } from "react-router-dom";
-import Loading from "../../Loading/Loading";
+// SaturdayExercises.js
+import React, { useState, useEffect } from 'react';
+import Stopwatches from '../Stopwatch/Stop';
 
+import { useNavigate } from 'react-router-dom';
+import Loading from '../../Loading/Loading';
 
 const buttonStyle = {
-  background: "blue",
-  color: "white",
-  border: "none",
-  padding: "8px 12px",
-  borderRadius: "4px",
-  marginRight: "5px",
-  cursor: "pointer",
+  background: 'blue',
+  color: 'white',
+  border: 'none',
+  padding: '8px 12px',
+  borderRadius: '4px',
+  marginRight: '5px',
+  cursor: 'pointer'
 };
 
 const API_URL = "https://nfx-back.onrender.com";
 
-function SaturdayFullBodyExercises() {
-  const [exerciseGroups, setExerciseGroups] = useState([]);
+function SaturdayExercises() {
+  const [saturdayData, setSaturdayData] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${API_URL}/week`)
-      .then((res) => res.json())
-      .then((data) => {
-        // Find Saturday's data by ensuring day exists and comparing in lowercase.
-        const saturdayData = data.find(
-          (item) =>
-            item.day && item.day.toLowerCase() === "Saturday"
-        );
-        if (saturdayData && saturdayData.exercises) {
-          // Filter for FullBody category exercises
-          const fullBodyExercises = saturdayData.exercises.filter(
-            (group) => group.category === "FullBody"
-          );
-          setExerciseGroups(fullBodyExercises);
-        }
+      .then(res => res.json())
+      .then(data => {
+        // Find Saturday's data (case-insensitive)
+        const saturday = data.find(day => day.day.toLowerCase() === 'saturday');
+        setSaturdayData(saturday);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error("Error fetching data:", err);
         setLoading(false);
       });
   }, []);
 
   if (loading) return <Loading />;
-
-  if (exerciseGroups.length === 0) {
-    return (
-      <div style={{ color: "red", textAlign: "center", padding: "20px" }}>
-        No FullBody exercises found for Saturday.
-      </div>
-    );
-  }
+  if (!saturdayData) return <div style={{ color: '#fff' }}>No data for Saturday found.</div>;
 
   return (
-    <div style={{ padding: "20px", background: "#000", color: "#fff" }}>
-      <h1
-        style={{
-          color: "orange",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <button
-          onClick={() => navigate("/exercises")}
-          style={{ ...buttonStyle, marginRight: "10px" }}
-        >
+    <div style={{ padding: '20px', background: '#000', color: '#fff' }}>
+      <h1 style={{ color: "orange", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <button onClick={() => navigate("/exercises")} style={{ ...buttonStyle, marginRight: "10px" }}>
           &larr;
         </button>
-        <span>Saturday - Full Body Exercises</span>
-        <button
-          onClick={() => navigate("/diet/saturday")}
-          style={{
-            ...buttonStyle,
-            marginLeft: "10px",
-            backgroundColor: "orange",
-            color: "black",
-          }}
-        >
+        <span>Saturday Exercises</span>
+        <button onClick={() => navigate("/diet/saturday")} style={{ ...buttonStyle, marginLeft: "10px", backgroundColor: "orange", color: "black" }}>
           Diet
         </button>
       </h1>
-      {exerciseGroups.map((group, index) => (
+      
+      {saturdayData.exercises.map((group, index) => (
         <div
           key={index}
           style={{
-            marginBottom: "30px",
-            border: "1px solid #fff",
-            padding: "30px",
-            borderRadius: "10px",
+            marginBottom: '30px',
+            border: '1px solid #fff',
+            padding: '30px',
+            borderRadius: '10px'
           }}
         >
-          <h2 style={{ color: "blue" }}>
-            {group.category} Exercises (Saturday)
-          </h2>
+          <h2 style={{ color: "blue" }}>{group.category} Exercises ({saturdayData.day})</h2>
           {group.details && group.details.length > 0 ? (
             group.details.map((exercise, idx) => (
-              <div key={idx} style={{ marginBottom: "20px" }}>
+              <div key={idx}>
                 <h3 style={{ color: "orange" }}>{exercise.name}</h3>
-                <p style={{ color: "blue" }}>{exercise.description}</p>
+                <p>{exercise.description}</p>
                 <div className="video-container">
                   <div className="video-wrapper">
                     {exercise.videoUrl && (
@@ -136,4 +102,4 @@ function SaturdayFullBodyExercises() {
   );
 }
 
-export default SaturdayFullBodyExercises;
+export default SaturdayExercises;
