@@ -1,5 +1,4 @@
 
-
 .gym-app {
     background: linear-gradient(to right, #222, #95c6f9);
     min-height: 100vh;
@@ -21,6 +20,7 @@
   .logout{
     color: black;
     background-color: dodgerblue;
+    width: 80px;
   }
 
 
@@ -76,13 +76,23 @@
     border-radius: 10px;
   }
   
-  @media (max-width: 768px) {
+ 
+
+  
+/* changed mediaqueries */
+@media (max-width: 768px) {
   .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 70px 0;
+  }
+  .dropdown-menu-end[data-bs-popper]{
+    right: auto;
+  }
+  .dropdown-menu{
+    --bs-dropdown-min-width: 6rem;
   }
   #mnd {
     display: flex;
@@ -94,13 +104,16 @@
     margin-top: 20px;   
     height: auto;      
     width: 100%;        
-    max-width: 400px;   
+    max-width: 450px;   
     display: block;     
   }
   .trainer-img {
     margin-top: 20px;
   }
 }
+
+
+
 
 
 
