@@ -105,9 +105,9 @@ const GymApp = () => {
               
               {showInfo && (
                 <div className="mt-4 fs-5 d-flex gap-2">
-                  <p style={{ color: "lightgreen" }}>+50 Coaches</p>
-                  <p style={{ color: "lightorange" }}>+100 Members Joined</p>
-                  <p style={{ color: "orange" }}>+50 Fitness Programs</p>
+                  <p style={{ color: "lightgreen",fontSize:"20px" }}>+50 Coaches</p>
+                  <p style={{ color: "lightorange",fontSize:"20px" }}>+100 Members Joined</p>
+                  <p style={{ color: "orange",fontSize:"20px" }}>+50 Fitness Programs</p>
                 </div>
               )}
             </div>
