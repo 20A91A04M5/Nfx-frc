@@ -460,7 +460,7 @@ const Landingpage = () => {
             </div>
             <div className="col-md-4">
               <div className="card p-4">
-                <h4 className="card-title text-dark  p-2">Ultra Pro</h4>
+                <h4 className="card-title text-light  p-2">Ultra Pro</h4>
                 <p className="card-price">500₹/mo</p>
                 <p>Access to 1300+ workout types</p>
                 <p>Customized Workout options</p>
