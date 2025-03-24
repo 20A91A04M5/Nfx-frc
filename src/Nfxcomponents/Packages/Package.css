@@ -15,7 +15,7 @@
 
 .pricing-header p {
   font-size: 1rem;
-  color: #666; 
+  color: #fff; 
 }
 
 
@@ -28,7 +28,7 @@
 }
 
 .card {
-  background: linear-gradient(120deg,black,white);
+  background: linear-gradient(120deg,rgb(23, 23, 23),rgb(96, 94, 94));
   padding: 20px;
   border-radius: 15px;
   width: 300px;
@@ -43,7 +43,7 @@
 }
 
 .card p {
-  color: #0f0f0f; 
+  color: #f0d20c; 
   font-size: 1rem;
   margin: 5px 0;
 }
@@ -54,11 +54,11 @@
 }
 
 .pro {
-  background: linear-gradient(120deg,black,white); 
+  background: linear-gradient(120deg,black,rgb(106, 106, 106)); 
 }
 
 .ultra-pro {
-  background: linear-gradient(120deg,black,white); 
+  background: linear-gradient(120deg,rgb(24, 24, 24),rgb(97, 96, 96)); 
 }
 
 
